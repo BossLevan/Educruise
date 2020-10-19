@@ -1,5 +1,7 @@
 import 'package:educruise/shared/constants/theme/appTheme.dart';
+import 'package:educruise/shared/widgets/border_button.dart';
 import 'package:educruise/shared/widgets/dot_indicator.dart';
+import 'package:educruise/shared/widgets/filled_button.dart';
 import 'package:educruise/shared/widgets/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -93,44 +95,11 @@ class _OnboardingState extends State<Onboarding> {
             ),
             Column(
               children: <Widget>[
-                Container(
-                  width: 250.w,
-                  padding: EdgeInsets.symmetric(vertical: 25.h),
-                  decoration: BoxDecoration(
-                      color: appTheme.primaryColor,
-                      borderRadius: BorderRadius.all(Radius.circular(60.w))),
-                  child: Center(
-                    child: Text(
-                      'I Am A Student',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          color: appTheme.backgroundColor,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                ),
+                FillButton(text: 'I Am A Student'),
                 SizedBox(
                   height: 30.h,
                 ),
-                Container(
-                  width: 250.w,
-                  padding: EdgeInsets.symmetric(vertical: 25.h),
-                  decoration: BoxDecoration(
-                      color: appTheme.backgroundColor,
-                      border: Border.all(
-                        color: appTheme.primaryColor,
-                      ),
-                      borderRadius: BorderRadius.all(Radius.circular(60.w))),
-                  child: Center(
-                    child: Text(
-                      'I Am A Volunteer',
-                      style: TextStyle(
-                          fontSize: 14.sp,
-                          color: appTheme.primaryColor,
-                          fontWeight: FontWeight.w600),
-                    ),
-                  ),
-                ),
+                BorderButton(text: 'I Am A Volunteer'),
               ],
             ),
           ],

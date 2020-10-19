@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateRoute: RouteGenerator.generateRoute,
-      initialRoute: RouteNames.splashScreen,
+      initialRoute: RouteNames.volunteerSignupLogin,
     );
   }
 }
