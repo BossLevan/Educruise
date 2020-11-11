@@ -12,8 +12,8 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MainApp();
-    //MultiProvider(providers: providers, child: MainApp());
+    return MultiProvider(providers: providers, child: MainApp());
+    //MainApp();
   }
 }
 
@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateRoute: RouteGenerator.generateRoute,
-      initialRoute: RouteNames.volunteerSignupLogin,
+      initialRoute: RouteNames.login,
     );
   }
 }

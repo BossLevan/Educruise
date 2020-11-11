@@ -59,7 +59,7 @@ class _OnboardingState extends State<Onboarding> {
               ),
             ),
             SizedBox(
-              height: 10.h,
+              height: 5.h,
             ),
             Container(
               //height: height * .07,
