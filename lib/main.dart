@@ -1,6 +1,7 @@
 import 'package:educruise/core/providers/providers.dart';
 import 'package:educruise/shared/constants/routes/route_generator.dart';
 import 'package:educruise/shared/constants/routes/routes.dart';
+import 'package:educruise/shared/constants/theme/appTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,8 +23,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: appTheme,
       onGenerateRoute: RouteGenerator.generateRoute,
-      initialRoute: RouteNames.login,
+      initialRoute: RouteNames.volunteerThankYou,
     );
   }
 }

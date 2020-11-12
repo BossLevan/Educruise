@@ -1,10 +1,14 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-class LoginModel extends ChangeNotifier {
+class SignUpModel extends ChangeNotifier {
+  List<String> accountType = ['Individual', 'Organization'];
+  String selectedAccountType = 'Individual';
   TextEditingController emailText = TextEditingController();
   TextEditingController passwordText = TextEditingController();
+  TextEditingController phoneNumberText = TextEditingController();
   String _email;
   String _password;
+  String _phoneNumber;
   final _formKey = GlobalKey<FormState>();
 
   Key get formKey {
@@ -32,6 +36,12 @@ class LoginModel extends ChangeNotifier {
   Function onEmailSaved() {
     return (value) => {
           _email = emailText.text,
+        };
+  }
+
+  Function onPhoneNumberSaved() {
+    return (value) => {
+          _phoneNumber = phoneNumberText.text,
         };
   }
 

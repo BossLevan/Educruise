@@ -4,7 +4,6 @@ import 'package:educruise/shared/widgets/dot_indicator.dart';
 import 'package:educruise/shared/widgets/filled_button.dart';
 import 'package:educruise/shared/widgets/onboarding_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Onboarding extends StatefulWidget {
