@@ -2,6 +2,7 @@ import 'package:educruise/shared/constants/page_transition.dart';
 import 'package:educruise/shared/constants/routes/routes.dart';
 import 'package:educruise/views/login/login_page.dart';
 import 'package:educruise/views/onboarding.dart';
+import 'package:educruise/views/report_abuse/report_abuse.dart';
 import 'package:educruise/views/signup/sign_up1.dart';
 import 'package:educruise/views/signup/sign_up2.dart';
 import 'package:educruise/views/signup/sign_up3.dart';
@@ -40,6 +41,9 @@ class RouteGenerator {
         break;
       case RouteNames.volunteerThankYou:
         return CustomSlideTransition(child: VolunteerThankYou());
+        break;
+      case RouteNames.reportAbuse1:
+        return CustomSlideTransition(child: ReportAbuse());
         break;
     }
   }
