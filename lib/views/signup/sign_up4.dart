@@ -110,22 +110,23 @@ class SignUp4 extends StatelessWidget {
                           borderRadius:
                               BorderRadius.all(Radius.circular(20.w))),
                       child: Center(
-                          child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Icon(
-                            Icons.arrow_upward,
-                            color: appTheme.primaryColor,
-                          ),
-                          Text(
-                            'Add File',
-                            style: TextStyle(
-                              fontSize: 16.sp,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Icon(
+                              Icons.arrow_upward,
                               color: appTheme.primaryColor,
                             ),
-                          ),
-                        ],
-                      )),
+                            Text(
+                              'Add File',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                color: appTheme.primaryColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ],
                 ),

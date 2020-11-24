@@ -25,7 +25,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       theme: appTheme,
       onGenerateRoute: RouteGenerator.generateRoute,
-      initialRoute: RouteNames.reportAbuse1,
+      initialRoute: RouteNames.homepageStudents,
     );
   }
 }

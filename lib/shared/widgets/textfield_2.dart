@@ -5,7 +5,9 @@ class CustomTextField2 extends StatefulWidget {
   final labelText;
   final model;
   final Function onSaved;
+  final controller;
   CustomTextField2({
+    this.controller,
     this.labelText,
     this.model,
     this.onSaved,
@@ -21,7 +23,7 @@ class _CustomTextField2State extends State<CustomTextField2> {
       // maxLines: widget.maxLines ?? 1,
       // keyboardType: widget.textInputType,
       onSaved: widget.onSaved,
-      // controller: widget.formText,
+      controller: widget.controller,
       // obscureText: widget.obscuredText,
       decoration: InputDecoration(
           labelText: widget.labelText ?? '',

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:educruise/shared/constants/theme/appTheme.dart';
 import 'package:educruise/views/report_abuse/page-one.dart';
 import 'package:educruise/views/report_abuse/page_four.dart';
@@ -20,15 +22,21 @@ class _ReportAbuseState extends State<ReportAbuse> {
     ScreenUtil.init(context, width: 375, height: 812, allowFontScaling: true);
     return SafeArea(
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: 10.h,
+              height: 20.h,
             ),
             Row(
               children: <Widget>[
-                Icon(Icons.cancel),
+                Transform.rotate(
+                  angle: pi / 4,
+                  child: Icon(
+                    Icons.add,
+                    size: 30.sp,
+                  ),
+                ),
                 SizedBox(
                   width: 20.w,
                 ),
@@ -169,7 +177,7 @@ class NumberCircle extends StatefulWidget {
 class _NumberCircleState extends State<NumberCircle> {
   @override
   Widget build(BuildContext context) {
-    print(int.parse(widget.number));
+    //print(int.parse(widget.number));
     return Container(
       padding: EdgeInsets.all(10.h),
       decoration: BoxDecoration(

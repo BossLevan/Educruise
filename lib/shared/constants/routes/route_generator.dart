@@ -1,7 +1,9 @@
 import 'package:educruise/shared/constants/page_transition.dart';
 import 'package:educruise/shared/constants/routes/routes.dart';
+import 'package:educruise/views/homepage_for_students/homepage_student.dart';
 import 'package:educruise/views/login/login_page.dart';
 import 'package:educruise/views/onboarding.dart';
+import 'package:educruise/views/report_abuse/confirm_details.dart';
 import 'package:educruise/views/report_abuse/report_abuse.dart';
 import 'package:educruise/views/signup/sign_up1.dart';
 import 'package:educruise/views/signup/sign_up2.dart';
@@ -44,6 +46,12 @@ class RouteGenerator {
         break;
       case RouteNames.reportAbuse1:
         return CustomSlideTransition(child: ReportAbuse());
+        break;
+      case RouteNames.confirmDetails:
+        return CustomSlideTransition(child: ConfirmDetails());
+        break;
+      case RouteNames.homepageStudents:
+        return CustomSlideTransition(child: HomepageStudents());
         break;
     }
   }
