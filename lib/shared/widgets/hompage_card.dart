@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePageCard extends StatelessWidget {
+  final Function onTap;
   final String text;
   final String buttonText;
   const HomePageCard({
+    this.onTap,
     this.buttonText,
     this.text,
     Key key,
@@ -42,25 +44,28 @@ class HomePageCard extends StatelessWidget {
               SizedBox(
                 height: 25.h,
               ),
-              Container(
-                padding: EdgeInsets.all(10.h),
-                child: Center(
-                  child: Text(
-                    '$buttonText',
-                    style: TextStyle(
-                        fontSize: 14.sp, color: appTheme.backgroundColor),
+              GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  padding: EdgeInsets.all(10.h),
+                  child: Center(
+                    child: Text(
+                      '$buttonText',
+                      style: TextStyle(
+                          fontSize: 14.sp, color: appTheme.backgroundColor),
+                    ),
                   ),
-                ),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: Color.fromRGBO(76, 59, 153, 0.4),
-                        blurRadius: 10.w,
-                        offset: Offset(0.w, 2.h))
-                  ],
-                  color: appTheme.primaryColor,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(30.w),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                          color: Color.fromRGBO(76, 59, 153, 0.4),
+                          blurRadius: 10.w,
+                          offset: Offset(0.w, 2.h))
+                    ],
+                    color: appTheme.primaryColor,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(30.w),
+                    ),
                   ),
                 ),
               )

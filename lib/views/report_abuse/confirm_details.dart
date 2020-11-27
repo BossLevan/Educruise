@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:educruise/shared/constants/routes/routes.dart';
 import 'package:educruise/shared/widgets/filled_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -65,7 +66,7 @@ class ConfirmDetails extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Container(
-                            height: 40.h,
+                            height: 80.h,
                             child: Text(
                               'NAME',
                               style: TextStyle(
@@ -79,7 +80,7 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
+                            height: 80.h,
                             child: Text(
                               'EMAIL',
                               style: TextStyle(
@@ -93,7 +94,7 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
+                            height: 80.h,
                             child: Text(
                               'PHONE',
                               style: TextStyle(
@@ -107,7 +108,7 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
+                            height: 80.h,
                             child: Text(
                               'RELATIONSHIP',
                               style: TextStyle(
@@ -121,7 +122,7 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
+                            height: 80.h,
                             child: Text(
                               'FACEBOOK',
                               style: TextStyle(
@@ -135,7 +136,7 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
+                            height: 80.h,
                             child: Text(
                               'TWITTER',
                               style: TextStyle(
@@ -149,7 +150,7 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
+                            height: 80.h,
                             child: Text(
                               'LINKEDIN',
                               style: TextStyle(
@@ -163,14 +164,14 @@ class ConfirmDetails extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 40.w,
+                      width: 30.w,
                     ),
                     Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Container(
-                            height: 40.h,
+                            height: 80.h,
                             child: Text(
                               '${model.nameOfAbuser}' ?? '',
                               style: TextStyle(
@@ -182,8 +183,8 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
-                            width: MediaQuery.of(context).size.width / 2,
+                            height: 80.h,
+                            width: MediaQuery.of(context).size.width * 0.55,
                             child: Text(
                               '${model.abuserEmailAddress}' ?? '-',
                               style: TextStyle(
@@ -196,8 +197,8 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
-                            width: MediaQuery.of(context).size.width / 2,
+                            height: 80.h,
+                            width: MediaQuery.of(context).size.width * 0.55,
                             child: Text(
                               '${model.abuserPhoneNumber}' ?? '-',
                               style: TextStyle(
@@ -208,13 +209,22 @@ class ConfirmDetails extends StatelessWidget {
                           SizedBox(
                             height: 20.h,
                           ),
-                          Container(height: 40.h, child: Text('')),
+                          Container(
+                            height: 80.h,
+                            width: MediaQuery.of(context).size.width * 0.55,
+                            child: Text(
+                              '${model.relationshipToAbuser}',
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                              ),
+                            ),
+                          ),
                           SizedBox(
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
-                            width: MediaQuery.of(context).size.width / 2,
+                            height: 80.h,
+                            width: MediaQuery.of(context).size.width * 0.55,
                             child: Text(
                               '${model.abuserFacebookProfile}' ?? '-',
                               style: TextStyle(
@@ -227,8 +237,8 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
-                            width: MediaQuery.of(context).size.width / 2,
+                            height: 80.h,
+                            width: MediaQuery.of(context).size.width * 0.55,
                             child: Text(
                               '${model.abuserTwitterProfile}' ?? '-',
                               style: TextStyle(
@@ -240,7 +250,7 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
-                            height: 40.h,
+                            height: 80.h,
                             child: Text(
                               '${model.abuserLinkedInProfile}' ?? '-',
                               style: TextStyle(
@@ -267,6 +277,7 @@ class ConfirmDetails extends StatelessWidget {
                   height: 30.h,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
                       child: Column(
@@ -281,7 +292,7 @@ class ConfirmDetails extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            height: 40.h,
+                            height: 80.h,
                           ),
                           Text(
                             'DATE',
@@ -294,14 +305,14 @@ class ConfirmDetails extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      width: 75.w,
-                    ),
+                    SizedBox(width: 60.w),
                     Container(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Container(
+                            width: MediaQuery.of(context).size.width * 0.50,
+                            height: 85.h,
                             child: Text(
                               '${model.placeOfAbuse}',
                               style: TextStyle(
@@ -313,6 +324,8 @@ class ConfirmDetails extends StatelessWidget {
                             height: 20.h,
                           ),
                           Container(
+                            width: MediaQuery.of(context).size.width * 0.50,
+                            height: 85.h,
                             child: Text(
                               '${model.timeOfAbuse}',
                               style: TextStyle(
@@ -361,7 +374,7 @@ class ConfirmDetails extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: '               Yes',
+                      text: '               ${model.yesOrNo}',
                       style: TextStyle(
                         color: Color(0XFF222222),
                         fontSize: 16.sp,
@@ -414,9 +427,15 @@ class ConfirmDetails extends StatelessWidget {
                 SizedBox(
                   height: 80.h,
                 ),
-                Center(
-                  child: FillButton(
-                    text: 'Submit',
+                GestureDetector(
+                  onTap: () => {
+                    Navigator.pop(context),
+                    Navigator.pop(context),
+                  },
+                  child: Center(
+                    child: FillButton(
+                      text: 'Submit',
+                    ),
                   ),
                 ),
                 SizedBox(

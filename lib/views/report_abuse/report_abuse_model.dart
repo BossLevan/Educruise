@@ -4,6 +4,8 @@ class ReportAbuseModel extends ChangeNotifier {
   TextEditingController nameOfAbuserController = TextEditingController();
   TextEditingController abuserPhoneNumberController = TextEditingController();
   TextEditingController abuserEmailAddressController = TextEditingController();
+  TextEditingController relationshipToAbuserController =
+      TextEditingController();
   TextEditingController abuserFacebookProfileController =
       TextEditingController();
   TextEditingController abuserTwitterProfileController =
@@ -18,6 +20,7 @@ class ReportAbuseModel extends ChangeNotifier {
   TextEditingController summaryOfAbuseController = TextEditingController();
   TextEditingController natureOfEvidenceController = TextEditingController();
 
+  String relationshipToAbuser;
   String nameOfAbuser;
   String abuserPhoneNumber;
   String abuserEmailAddress;
@@ -33,6 +36,8 @@ class ReportAbuseModel extends ChangeNotifier {
   String abuseFile; /* I dont know the datatype for file uploads */
   String studentPhoneNumber;
   String studentEmail;
+  bool submitAnonymously = true;
+  bool evidenceAvailable = true;
 
   final formKeyPageOne = GlobalKey<FormState>();
   final formKeyPageTwo = GlobalKey<FormState>();
@@ -42,12 +47,30 @@ class ReportAbuseModel extends ChangeNotifier {
   PageController pageController = PageController(
     initialPage: 0,
   );
+  String yesOrNo = 'No';
+  returnYesOrNo() {
+    if (evidenceAvailable == true) {
+      yesOrNo = 'Yes';
+    } else {
+      yesOrNo = 'No';
+      ;
+    }
+    notifyListeners();
+  }
 
   int selectedValuePageFour = 0;
   int selectedValuePageThree = 0;
   Function onRadioButtonChangedPageFour() {
     return (val) => {
           selectedValuePageFour = val,
+          if (selectedValuePageFour == 1)
+            {
+              submitAnonymously = true,
+            }
+          else
+            {
+              submitAnonymously = false,
+            },
           notifyListeners(),
         };
   }
@@ -55,6 +78,15 @@ class ReportAbuseModel extends ChangeNotifier {
   Function onRadioButtonChangedPageThree() {
     return (val) => {
           selectedValuePageThree = val,
+          if (selectedValuePageThree == 0)
+            {
+              evidenceAvailable = true,
+            }
+          else
+            {
+              evidenceAvailable = false,
+            },
+          returnYesOrNo(),
           notifyListeners(),
         };
   }
@@ -138,6 +170,12 @@ class ReportAbuseModel extends ChangeNotifier {
   Function onNameOfAbuserSaved() {
     return (value) => {
           nameOfAbuser = nameOfAbuserController.text,
+        };
+  }
+
+  Function onRelationshipToAbuserSaved() {
+    return (value) => {
+          relationshipToAbuser = relationshipToAbuserController.text,
         };
   }
 

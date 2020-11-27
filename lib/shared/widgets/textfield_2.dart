@@ -2,11 +2,13 @@ import 'package:educruise/shared/constants/theme/appTheme.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextField2 extends StatefulWidget {
+  bool enabled;
   final labelText;
   final model;
   final Function onSaved;
   final controller;
   CustomTextField2({
+    this.enabled,
     this.controller,
     this.labelText,
     this.model,
@@ -20,6 +22,7 @@ class _CustomTextField2State extends State<CustomTextField2> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      enabled: widget.enabled,
       // maxLines: widget.maxLines ?? 1,
       // keyboardType: widget.textInputType,
       onSaved: widget.onSaved,

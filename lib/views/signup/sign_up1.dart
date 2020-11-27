@@ -1,6 +1,6 @@
 import 'package:educruise/shared/constants/theme/appTheme.dart';
 import 'package:educruise/shared/widgets/filled_button.dart';
-import 'package:educruise/views/login/login_model.dart';
+import 'package:educruise/views/signup/sign_up2.dart';
 import 'package:educruise/views/signup/sign_up_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -86,8 +86,19 @@ class _SignUp1State extends State<SignUp1> {
                       );
                     },
                   ),
-                  SizedBox(height: 240.h),
-                  FillButton(text: 'Next'),
+                  SizedBox(height: 280.h),
+                  GestureDetector(
+                      onTap: () => {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => SignUp2(
+                                  signupModel: signupModel,
+                                ),
+                              ),
+                            )
+                          },
+                      child: FillButton(text: 'Next')),
                 ],
               ),
             ),

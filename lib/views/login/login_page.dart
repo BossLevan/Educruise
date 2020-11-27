@@ -1,3 +1,4 @@
+import 'package:educruise/shared/constants/routes/routes.dart';
 import 'package:educruise/shared/widgets/filled_button.dart';
 import 'package:educruise/shared/widgets/text_form_field.dart';
 import 'package:educruise/views/login/login_model.dart';
@@ -61,8 +62,17 @@ class _LoginState extends State<Login> {
                         ),
                         SizedBox(height: 140.h),
                         GestureDetector(
-                          onTap: loginModel.onTapLogin(
-                              loginModel.formKey, context),
+                          onTap: () => {
+                            Navigator.of(context)
+                              ..pop()
+                              ..pop()
+                              ..pop()
+                              ..pop()
+                              ..pushNamed(RouteNames.homepageVolunteers)
+                          },
+                          //loginModel.onTapLogin(
+                          //   loginModel.formKey, context),
+
                           // onTap: () {
                           child: FillButton(
                             text: 'Log In',

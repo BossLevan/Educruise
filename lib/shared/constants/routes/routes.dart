@@ -1,4 +1,5 @@
 import 'package:educruise/views/homepage_for_students/homepage_student.dart';
+import 'package:educruise/views/homepage_volunteers/homepage_volunteers.dart';
 import 'package:educruise/views/login/login_page.dart';
 import 'package:educruise/views/onboarding.dart';
 import 'package:educruise/views/report_abuse/confirm_details.dart';
@@ -26,6 +27,7 @@ class RouteNames {
   static const String reportAbuse1 = 'reportAbuse1';
   static const String confirmDetails = 'confirmDetails';
   static const String homepageStudents = 'homepageStudents';
+  static const String homepageVolunteers = 'homepageVolunteers';
 
   //Routes and their respective Pages.
   static Map<String, Widget Function(BuildContext)> routes = {
@@ -40,6 +42,7 @@ class RouteNames {
     RouteNames.volunteerThankYou: (context) => VolunteerThankYou(),
     RouteNames.reportAbuse1: (context) => ReportAbuse(),
     RouteNames.confirmDetails: (context) => ConfirmDetails(),
-    RouteNames.homepageStudents: (context) => HomepageStudents()
+    RouteNames.homepageStudents: (context) => HomepageStudents(),
+    RouteNames.homepageVolunteers: (context) => HomepageVolunteers(),
   };
 }

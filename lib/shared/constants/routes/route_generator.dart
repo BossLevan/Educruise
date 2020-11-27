@@ -1,6 +1,7 @@
 import 'package:educruise/shared/constants/page_transition.dart';
 import 'package:educruise/shared/constants/routes/routes.dart';
 import 'package:educruise/views/homepage_for_students/homepage_student.dart';
+import 'package:educruise/views/homepage_volunteers/homepage_volunteers.dart';
 import 'package:educruise/views/login/login_page.dart';
 import 'package:educruise/views/onboarding.dart';
 import 'package:educruise/views/report_abuse/confirm_details.dart';
@@ -52,6 +53,9 @@ class RouteGenerator {
         break;
       case RouteNames.homepageStudents:
         return CustomSlideTransition(child: HomepageStudents());
+        break;
+      case RouteNames.homepageVolunteers:
+        return CustomSlideTransition(child: HomepageVolunteers());
         break;
     }
   }

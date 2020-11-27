@@ -89,6 +89,23 @@ class _PageOneState extends State<PageOne> {
               onSaved: widget.model.onAbuserEmailAddress(),
             ),
             SizedBox(
+              height: 40.h,
+            ),
+            Text(
+              'Relationship to Abuser',
+              style: TextStyle(
+                fontSize: 16.sp,
+              ),
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            CustomTextField2(
+              model: widget.model,
+              controller: widget.model.relationshipToAbuserController,
+              onSaved: widget.model.onRelationshipToAbuserSaved(),
+            ),
+            SizedBox(
               height: 100.h,
             ),
             GestureDetector(

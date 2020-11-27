@@ -3,9 +3,10 @@ import 'package:educruise/shared/widgets/card_with_icon_button.dart';
 import 'package:educruise/shared/widgets/homepage_card_with_icon.dart';
 import 'package:educruise/shared/widgets/hompage_card.dart';
 import 'package:educruise/views/homepage_for_students/homepage_student_model.dart';
+import 'package:educruise/views/report_abuse/report_abuse.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
 import 'package:provider/provider.dart';
 
 class HomepageStudents extends StatelessWidget {
@@ -45,11 +46,16 @@ class HomepageStudents extends StatelessWidget {
                 ),
               ),
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   Column(
                     children: <Widget>[
                       HomePageCard(
+                        onTap: () => {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => ReportAbuse()))
+                        },
                         text: 'Have you been sexually abused?',
                         buttonText: 'Report',
                       ),

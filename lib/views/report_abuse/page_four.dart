@@ -128,6 +128,7 @@ class _PageFourState extends State<PageFour> {
               height: 20.h,
             ),
             CustomTextField2(
+              enabled: widget.model.submitAnonymously,
               controller: widget.model.studentPhoneNumberController,
               model: widget.model,
               onSaved: widget.model.onStudentPhoneNumber(),
@@ -145,6 +146,7 @@ class _PageFourState extends State<PageFour> {
               height: 20.h,
             ),
             CustomTextField2(
+              enabled: widget.model.submitAnonymously,
               controller: widget.model.studentEmailController,
               model: widget.model,
               onSaved: widget.model.onStudentEmail(),

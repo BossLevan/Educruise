@@ -6,10 +6,15 @@ class SignUpModel extends ChangeNotifier {
   TextEditingController emailText = TextEditingController();
   TextEditingController passwordText = TextEditingController();
   TextEditingController phoneNumberText = TextEditingController();
+  TextEditingController motivationToVolunteerText = TextEditingController();
+  TextEditingController experienceInVolunteeringText = TextEditingController();
+  String experienceInVolunteering;
+  String motivationToVolunteer;
   String _email;
   String _password;
   String _phoneNumber;
   final _formKey = GlobalKey<FormState>();
+  final pageThreeFormKey = GlobalKey<FormState>();
 
   Key get formKey {
     return _formKey;
@@ -21,6 +26,10 @@ class SignUpModel extends ChangeNotifier {
 
   String get password {
     return _password;
+  }
+
+  String get phoneNumber {
+    return _phoneNumber;
   }
 
   Function validate() {
@@ -48,6 +57,18 @@ class SignUpModel extends ChangeNotifier {
   Function onPasswordSaved() {
     return (value) => {
           _password = passwordText.text,
+        };
+  }
+
+  Function experienceInVolunteeringSaved() {
+    return (value) => {
+          experienceInVolunteering = experienceInVolunteeringText.text,
+        };
+  }
+
+  Function motivationToVolunteerSaved() {
+    return (value) => {
+          motivationToVolunteer = motivationToVolunteerText.text,
         };
   }
 

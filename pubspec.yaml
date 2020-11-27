@@ -29,8 +29,9 @@ dependencies:
   cupertino_icons: ^0.1.3
   provider: ^4.3.1
   flutter_screenutil:
-  google_fonts: ^1.1.1
-  flutter_staggered_grid_view:
+  flutter_svg:
+  # flutter_icons: ^1.1.0
+  http: ^0.12.2
 
 dev_dependencies:
   flutter_test:
@@ -62,12 +63,22 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: Source Sans Pro
+      fonts:
+        - asset: lib/shared/fonts/SourceSansPro-Black.ttf
+        - asset: lib/shared/fonts/SourceSansPro-BlackItalic.ttf
+        - asset: lib/shared/fonts/SourceSansPro-Bold.ttf
+        - asset: lib/shared/fonts/SourceSansPro-BoldItalic.ttf
+        - asset: lib/shared/fonts/SourceSansPro-ExtraLight.ttf
+        - asset: lib/shared/fonts/SourceSansPro-ExtraLightItalic.ttf
+        - asset: lib/shared/fonts/SourceSansPro-Italic.ttf
+        - asset: lib/shared/fonts/SourceSansPro-Light.ttf
+        - asset: lib/shared/fonts/SourceSansPro-LightItalic.ttf
+        - asset: lib/shared/fonts/SourceSansPro-Regular.ttf
+        - asset: lib/shared/fonts/SourceSansPro-SemiBold.ttf
+        - asset: lib/shared/fonts/SourceSansPro-SemiBoldItalic.ttf
+          # style: normal
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

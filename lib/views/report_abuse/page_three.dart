@@ -15,6 +15,7 @@ class PageThree extends StatefulWidget {
 class _PageThreeState extends State<PageThree> {
   @override
   Widget build(BuildContext context) {
+    print(widget.model.evidenceAvailable);
     return SingleChildScrollView(
       child: Form(
         key: widget.model.formKeyPageThree,
@@ -151,6 +152,7 @@ class _PageThreeState extends State<PageThree> {
               height: 20.h,
             ),
             TextFormField(
+              enabled: widget.model.evidenceAvailable,
               controller: widget.model.natureOfEvidenceController,
               onSaved: widget.model.onEvidenceOfAbuse(),
             ),

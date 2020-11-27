@@ -1,8 +1,11 @@
+import 'package:educruise/shared/constants/routes/routes.dart';
 import 'package:educruise/shared/constants/theme/appTheme.dart';
 import 'package:educruise/shared/widgets/border_button.dart';
 import 'package:educruise/shared/widgets/dot_indicator.dart';
 import 'package:educruise/shared/widgets/filled_button.dart';
 import 'package:educruise/shared/widgets/onboarding_screen.dart';
+import 'package:educruise/views/homepage_for_students/homepage_student.dart';
+import 'package:educruise/views/volunteer_signup_login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -94,11 +97,27 @@ class _OnboardingState extends State<Onboarding> {
             ),
             Column(
               children: <Widget>[
-                FillButton(text: 'I Am A Student'),
+                GestureDetector(
+                    onTap: () => {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => HomepageStudents()),
+                          ),
+                        },
+                    child: FillButton(text: 'I Am A Student')),
                 SizedBox(
                   height: 30.h,
                 ),
-                BorderButton(text: 'I Am A Volunteer'),
+                GestureDetector(
+                    onTap: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => VolunteerSignupLogin()),
+                          )
+                        },
+                    child: BorderButton(text: 'I Am A Volunteer')),
               ],
             ),
           ],

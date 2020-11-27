@@ -35,8 +35,8 @@ class _SplashScreenState extends State<SplashScreen> {
             Center(
               child: Text(
                 'Educruise',
-                style: appTheme.textTheme.headline1
-                    .copyWith(fontWeight: FontWeight.bold),
+                style: appTheme.textTheme.headline6
+                    .copyWith(fontWeight: FontWeight.bold, fontSize: 20),
               ),
             )
           ],
