@@ -7,7 +7,6 @@ import 'package:educruise/core/models/volunteers_form.dart';
 import 'package:educruise/core/services/network_util.dart';
 
 class ApiClient {
-
   /// Instantiating a class of the [NetworkHelper]
   NetworkHelper _netUtil = NetworkHelper();
 
@@ -21,27 +20,24 @@ class ApiClient {
   static final FETCH_ALL_REPORT_URL = BASE_URL + "/reports/fetchAll";
   static final FETCH_REPORT_URL = BASE_URL + "/reports/fetch";
 
-
-
   /// A function that verifies login details from the database POST.
   /// with [email] and [password]
   Future<User> login(String email, String password) {
     Map<String, String> header = {"content-Type": "application/json"};
-    return _netUtil.postLogin(LOGIN_URL, headers: header, body: {
-      "email": email,
-      "password": password
-    }).then((dynamic res) {
-      if(res["error"]){
+    return _netUtil.postLogin(LOGIN_URL,
+        headers: header,
+        body: {"email": email, "password": password}).then((dynamic res) {
+      if (res["error"]) {
         throw (res["message"]);
-      }else{
+      } else {
         return User.map(res["data"]);
       }
-    }).catchError((e){
+    }).catchError((e) {
       print(e);
-      if(e is SocketException){
+      if (e is SocketException) {
         throw ("Unable to connect to the server, check your internet connection");
       }
-      if(e is TimeoutException){
+      if (e is TimeoutException) {
         throw ("Request timeout, try again");
       }
       throw (e);
@@ -61,14 +57,14 @@ class ApiClient {
       "confirmPassword": form.confirmPassword
     };
     return _netUtil.post(SIGN_UP_URL, body: body).then((dynamic res) {
-      if(res["error"]){
+      if (res["error"]) {
         throw (res["message"]);
-      }else{
+      } else {
         return User.map(res["data"]);
       }
-    }).catchError((e){
+    }).catchError((e) {
       print(e);
-      if(e is SocketException){
+      if (e is SocketException) {
         throw ("Unable to connect to the server, check your internet connection");
       }
       throw (e);
@@ -79,22 +75,19 @@ class ApiClient {
   /// into a model of [User] GET.
   Future<dynamic> getCurrentUser(String token) async {
     Map<String, String> header = {
-      "x-auth-token": "$token",
+      "Authorization": "Bearer $token",
       "content-Type": "application/json"
     };
     return _netUtil.get(GET_ME_URL, headers: header).then((dynamic res) {
-      if(res["error"] == true){
+      if (res["error"] == true) {
         throw (res["message"]);
-      }else{
-        Map result = {
-          'user': User.map(res["data"]),
-          'token': token
-        };
+      } else {
+        Map result = {'user': User.map(res["data"]), 'token': token};
         return result;
       }
-    }).catchError((e){
+    }).catchError((e) {
       print(e);
-      if(e is SocketException){
+      if (e is SocketException) {
         throw ("Unable to connect to the server, check your internet connection");
       }
       throw (e);
@@ -103,11 +96,8 @@ class ApiClient {
 
   /// A function that creates a new report or abuse
   /// with [CreateReport] model
-  Future<dynamic> addBankAccount(CreateReport report, String token) async {
-    Map<String, String> header = {
-      "x-auth-token": "$token",
-      "content-Type": "application/json"
-    };
+  Future<dynamic> addReport(CreateReport report) async {
+    Map<String, String> header = {"content-Type": "application/json"};
     return _netUtil.post(CREATE_REPORT_URL, headers: header, body: {
       "abuserFullName": report.abuserFullName,
       "abuserEmail": report.abuserEmail,
@@ -121,14 +111,14 @@ class ApiClient {
       "personPhone": report.personPhone,
       "personEmail": report.personEmail
     }).then((dynamic res) {
-      if(res["error"] == true){
+      if (res["error"] == true) {
         throw (res["message"]);
-      }else{
+      } else {
         return res["message"];
       }
-    }).catchError((e){
+    }).catchError((e) {
       print(e);
-      if(e is SocketException){
+      if (e is SocketException) {
         throw ("Unable to connect to the server, check your internet connection");
       }
       throw (e);
@@ -139,21 +129,23 @@ class ApiClient {
   /// into a model of [Reports] GET.
   Future<List<Reports>> fetchAllReports(String token) async {
     Map<String, String> header = {
-      "x-auth-token": "$token",
+      "Authorization": "Bearer $token",
       "content-Type": "application/json"
     };
     List<Reports> reports;
-    return _netUtil.get(FETCH_ALL_REPORT_URL, headers: header).then((dynamic res) {
-      if(res["error"] == true){
+    return _netUtil
+        .get(FETCH_ALL_REPORT_URL, headers: header)
+        .then((dynamic res) {
+      if (res["error"] == true) {
         throw (res["message"]);
-      }else{
+      } else {
         var rest = res["data"] as List;
         reports = rest.map<Reports>((json) => Reports.fromJson(json)).toList();
         return reports;
       }
-    }).catchError((e){
+    }).catchError((e) {
       print(e);
-      if(e is SocketException){
+      if (e is SocketException) {
         throw ("Unable to connect to the server, check your internet connection");
       }
       throw (e);
@@ -164,19 +156,19 @@ class ApiClient {
   /// with id into a model of [Reports] GET.
   Future<Reports> fetchReport(String id, String token) async {
     Map<String, String> header = {
-      "x-auth-token": "$token",
+      "Authorization": "Bearer $token",
       "content-Type": "application/json"
     };
     final FETCH_REPORT = FETCH_REPORT_URL + "/$id";
     return _netUtil.get(FETCH_REPORT, headers: header).then((dynamic res) {
-      if(res["error"] == true){
+      if (res["error"] == true) {
         throw (res["message"]);
-      }else{
+      } else {
         return Reports.fromJson(res["data"]);
       }
-    }).catchError((e){
+    }).catchError((e) {
       print(e);
-      if(e is SocketException){
+      if (e is SocketException) {
         throw ("Unable to connect to the server, check your internet connection");
       }
       throw (e);

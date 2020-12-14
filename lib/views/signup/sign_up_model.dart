@@ -1,3 +1,4 @@
+import 'package:educruise/core/models/volunteers_form.dart';
 import 'package:flutter/cupertino.dart';
 
 class SignUpModel extends ChangeNotifier {
@@ -15,6 +16,18 @@ class SignUpModel extends ChangeNotifier {
   String _phoneNumber;
   final _formKey = GlobalKey<FormState>();
   final pageThreeFormKey = GlobalKey<FormState>();
+
+  VolunteersForm convertToVolunteersForm(SignUpModel model) {
+    return VolunteersForm.convertFromSignup(
+      email: model.email,
+      phone: model.phoneNumber,
+      motivation: model.motivationToVolunteer,
+      experience: model.experienceInVolunteering,
+      role: model.selectedAccountType,
+      password: model.password,
+      confirmPassword: model.password,
+    );
+  }
 
   Key get formKey {
     return _formKey;

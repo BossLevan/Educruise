@@ -2,12 +2,11 @@ import 'package:educruise/core/services/api_service.dart';
 import 'package:educruise/shared/constants/routes/routes.dart';
 import 'package:educruise/shared/constants/theme/appTheme.dart';
 import 'package:educruise/shared/widgets/filled_button.dart';
-
-import 'package:educruise/views/thank_you_volunteer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUp4 extends StatefulWidget {
+  final apiClient = ApiClient();
   final signupModel;
   SignUp4({this.signupModel});
 
@@ -144,21 +143,26 @@ class _SignUp4State extends State<SignUp4> {
                 ),
                 SizedBox(height: 80.h),
                 GestureDetector(
-                    onTap: () => {
-                          widget.signupModel.formKey.currentState.save(),
-                          Navigator.of(context)
-                            ..pop()
-                            ..pop()
-                            ..pop()
-                            ..pop()
-                            ..pushNamed(RouteNames.volunteerThankYou),
-                          // Scaffold.of(context).showSnackBar(
-                          //   SnackBar(
-                          //     content: Text(
-                          //         'Thank You for applying! You will be contacted shortly.'),
-                          //   ),
-                          // ),
-                        },
+                    onTap: () async {
+                      widget.signupModel.formKey.currentState.save();
+                      var signupForm = widget.signupModel
+                          .convertToVolunteersForm(widget.signupModel);
+                      print(signupForm.email);
+                      var res = await widget.apiClient.signUp(signupForm);
+                      print(res);
+                      Navigator.of(context)
+                        ..pop()
+                        ..pop()
+                        ..pop()
+                        ..pop()
+                        ..pushNamed(RouteNames.volunteerThankYou);
+                      // Scaffold.of(context).showSnackBar(
+                      //   SnackBar(
+                      //     content: Text(
+                      //         'Thank You for applying! You will be contacted shortly.'),
+                      //   ),
+                      // ),
+                    },
                     child: FillButton(text: 'Submit')),
                 SizedBox(height: 30.h),
               ],

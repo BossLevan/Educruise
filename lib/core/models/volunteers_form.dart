@@ -1,5 +1,13 @@
 class VolunteersForm {
-
+  VolunteersForm.convertFromSignup({
+    this.email,
+    this.phone,
+    this.motivation,
+    this.experience,
+    this.role,
+    this.password,
+    this.confirmPassword,
+  });
   VolunteersForm();
 
   String email;
@@ -11,12 +19,12 @@ class VolunteersForm {
   String confirmPassword;
 
   Map<String, dynamic> toJson() => {
-    "email": email,
-    "phone": phone,
-    "motivation": motivation,
-    "experience": experience,
-    "role": role,
-    "password": password,
-    "confirmPassword": confirmPassword,
-  };
+        "email": email,
+        "phone": phone,
+        "motivation": motivation,
+        "experience": experience,
+        "role": role,
+        "password": password,
+        "confirmPassword": confirmPassword,
+      };
 }

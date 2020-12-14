@@ -3,8 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 /// A network helper class to do all the back end request
-class NetworkHelper{
-
+class NetworkHelper {
   /// next three lines makes this class a Singleton
   static NetworkHelper _instance = new NetworkHelper.internal();
   NetworkHelper.internal();
@@ -15,10 +14,10 @@ class NetworkHelper{
 
   /// A function to do the login request with the url and headers
   /// then sends back a json decoded result
-  Future<dynamic> postLogin (String url, {Map headers, body, encoding}) async {
+  Future<dynamic> postLogin(String url, {Map headers, body, encoding}) async {
     try {
       return http
-          .post(url, body: json.encode(body), headers: headers, encoding: encoding)
+          .post(url, body: body, headers: headers, encoding: encoding)
           .then((http.Response response) {
         final String res = response.body;
         final int statusCode = response.statusCode;
@@ -38,10 +37,7 @@ class NetworkHelper{
   /// then sends back a json decoded result
   Future<dynamic> get(String url, {Map headers, body}) async {
     try {
-      return
-        http
-          .get(url, headers: headers)
-          .then((http.Response response) {
+      return http.get(url, headers: headers).then((http.Response response) {
         final String res = response.body;
         final int statusCode = response.statusCode;
         if (statusCode < 200 || statusCode > 400 || json == null) {
@@ -60,7 +56,7 @@ class NetworkHelper{
   Future<dynamic> post(String url, {Map headers, body, encoding}) {
     try {
       return http
-          .post(url, body: json.encode(body), headers: headers, encoding: encoding)
+          .post(url, body: body, headers: headers, encoding: encoding)
           .then((http.Response response) {
         final String res = response.body;
         final int statusCode = response.statusCode;
@@ -78,14 +74,15 @@ class NetworkHelper{
 
   /// A function to do any post request of form data with the url and headers
   /// then sends back a json decoded result
-  Future<dynamic> postForm(Uri url, List<http.MultipartFile> files, {Map header, body, encoding}) async {
+  Future<dynamic> postForm(Uri url, List<http.MultipartFile> files,
+      {Map header, body, encoding}) async {
     try {
       var request = http.MultipartRequest('POST', url);
-      if(header != null){
+      if (header != null) {
         request.headers.addAll(header);
       }
       request.fields.addAll(body);
-      if(files != null){
+      if (files != null) {
         request.files.addAll(files);
       }
 
@@ -108,7 +105,7 @@ class NetworkHelper{
   Future<dynamic> put(String url, {Map headers, body, encoding}) {
     try {
       return http
-          .put(url, body: json.encode(body), headers: headers, encoding: encoding)
+          .put(url, body: body, headers: headers, encoding: encoding)
           .then((http.Response response) {
         final String res = response.body;
         final int statusCode = response.statusCode;
@@ -128,9 +125,7 @@ class NetworkHelper{
   /// then sends back a json decoded result
   Future<dynamic> delete(String url, {Map headers}) {
     try {
-      return http
-          .delete(url, headers: headers)
-          .then((http.Response response) {
+      return http.delete(url, headers: headers).then((http.Response response) {
         final String res = response.body;
         final int statusCode = response.statusCode;
 
@@ -144,8 +139,4 @@ class NetworkHelper{
       throw (e.toString());
     }
   }
-
 }
-
-
-
